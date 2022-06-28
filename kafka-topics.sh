@@ -12,3 +12,12 @@ $ kafka-topics.sh --describe --zookeeper zookeeper_host:zookeeper_host_port --to
 
 # create topic
 $ kafka-topics.sh --create --zookeeper $(cat ZooKeeperList.txt) --topic test_topic --replication-factor 2 --partitions 3
+
+# write topic
+$ kafka-console-producer.sh --broker-list $(cat BrokersList.txt) --producer.config producer.properties --topic topic_name_here
+
+# read topic
+$ kafka-console-consumer.sh --bootstrap-server $(cat BrokersList.txt) --consumer.config producer.properties --topic topic_name_here --from-beginning
+
+# delete topic
+$ kafka-topics.sh --delete --zookeeper zookeeper_host:zookeeper_host_port --topic test_topic
