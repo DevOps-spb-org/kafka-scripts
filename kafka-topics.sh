@@ -21,3 +21,9 @@ $ kafka-console-consumer.sh --bootstrap-server $(cat BrokersList.txt) --consumer
 
 # delete topic
 $ kafka-topics.sh --delete --zookeeper zookeeper_host:zookeeper_host_port --topic test_topic
+
+# add partition
+$ kafka-topics.sh --alter --zookeeper zookeeper_host:zookeeper_host_port --topic test_topic --partitions 3
+
+# view topic config
+$ kafka-configs.sh --describe --zookeeper zookeeper_host:zookeeper_host_port --entity-type topics --entity-name test_topic
